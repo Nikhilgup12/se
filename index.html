@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Download Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline critical CSS in case external stylesheet doesn't load */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pdf-item {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .download-btn, .view-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 5px;
+        }
+        
+        .download-btn {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .view-btn {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF Download Portal</h1>
+        </header>
+        
+        <main>
+            <div class="pdf-section">
+                <h2>Available Files</h2>
+                
+                <div class="pdf-list">
+                    <div class="pdf-item">
+                        <div class="pdf-info">
+                            <h3>SE Practical Answers Final</h3>
+                            <p>PDF Document</p>
+                        </div>
+                        <div class="pdf-actions">
+                            <a href="pdfs/se_practical_ans_final.pdf" download="se_practical_ans_final.pdf" class="download-btn">Download</a>
+                            <a href="pdfs/se_practical_ans_final.pdf" target="_blank" class="view-btn">View</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pdf-item">
+                        <div class="pdf-info">
+                            <h3>WhatsApp Image 1</h3>
+                            <p>JPG Image</p>
+                        </div>
+                        <div class="pdf-actions">
+                            <a href="pdfs/WhatsApp%20Image%202025-04-21%20at%2021.24.00_31a4a7b5.jpg" download="WhatsApp_Image_1.jpg" class="download-btn">Download</a>
+                            <a href="pdfs/WhatsApp%20Image%202025-04-21%20at%2021.24.00_31a4a7b5.jpg" target="_blank" class="view-btn">View</a>
+                        </div>
+                    </div>
+                    
+                    <div class="pdf-item">
+                        <div class="pdf-info">
+                            <h3>WhatsApp Image 2</h3>
+                            <p>JPG Image</p>
+                        </div>
+                        <div class="pdf-actions">
+                            <a href="pdfs/WhatsApp%20Image%202025-04-21%20at%2021.23.59_f84ee541.jpg" download="WhatsApp_Image_2.jpg" class="download-btn">Download</a>
+                            <a href="pdfs/WhatsApp%20Image%202025-04-21%20at%2021.23.59_f84ee541.jpg" target="_blank" class="view-btn">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>PDF Download Portal © 2024</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Ensure all download links trigger automatic downloads
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            
+            downloadButtons.forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    console.log('Download clicked');
+                    // Force download in case browser tries to open the file
+                    const link = this;
+                    const url = link.getAttribute('href');
+                    const fileName = link.getAttribute('download');
+                    
+                    // For logging purposes
+                    console.log('Downloading:', url, 'as', fileName);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
